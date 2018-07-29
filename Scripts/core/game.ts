@@ -10,6 +10,9 @@
     let btnInstructions: objects.Button;
     let assetManager: createjs.LoadQueue;
 
+    let currentScene: objects.Scene;
+    let currentState: config.Scene;
+
     let Manifest = [
         { id: "btnStart", src: "/Assets/images/button_start.jpg" },
         { id: "btnExit", src: "/Assets/images/button_exit.jpg" },
@@ -39,20 +42,46 @@
         createjs.Ticker.framerate = 60; // sets framerate to 60fps
         createjs.Ticker.on("tick", Update);
 
+        currentState = config.Scene.START;
+
         // This is where all the magic happens
         Main();
     }
 
     function Update(): void {
+        if (managers.Game.CurrentState != currentState) {
+            currentState = managers.Game.CurrentState;
+            Main();
+        }
+        currentScene.Update();
+
         stage.update();
     }
 
     function Main(): void {
         console.log(
-            `%c Main Function`,
+            `%c Finite State Machine`,
             "font-style:italic; font-size:16px; color:black;"
         );
 
+        switch (currentState) {
+            case config.Scene.START:
+                currentScene = new Scenes.Start();
+                break;
+
+            case config.Scene.INSTRUCTIONS:
+                //currentScene = new Scenes.Play();
+                break;
+
+            case config.Scene.EXIT:
+                //
+                currentScene = new Scenes.Play();
+                break;
+        }
+
+        stage.addChild(currentScene);
+
+        /*
         // label
         welcomeLabel = new objects.Label(
             "Welcome",
@@ -74,11 +103,11 @@
         stage.addChild(btnInstructions);
         stage.addChild(btnExit);
 
-        // TODO
         btnStart.on("click", function () {
             console.log(`clicked`);
             //welcomeLabel.text = "Clicked!";
         });
+        */
     }
 
     window.addEventListener("load", Init);

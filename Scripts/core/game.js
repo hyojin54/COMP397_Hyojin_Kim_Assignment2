@@ -9,6 +9,8 @@
     var btnExit;
     var btnInstructions;
     var assetManager;
+    var currentScene;
+    var currentState;
     var Manifest = [
         { id: "btnStart", src: "/Assets/images/button_start.jpg" },
         { id: "btnExit", src: "/Assets/images/button_exit.jpg" },
@@ -29,29 +31,60 @@
         stage.enableMouseOver(20); // enables mouseover events
         createjs.Ticker.framerate = 60; // sets framerate to 60fps
         createjs.Ticker.on("tick", Update);
+        currentState = config.Scene.START;
         // This is where all the magic happens
         Main();
     }
     function Update() {
+        if (managers.Game.CurrentState != currentState) {
+            currentState = managers.Game.CurrentState;
+            Main();
+        }
+        currentScene.Update();
         stage.update();
     }
     function Main() {
-        console.log("%c Main Function", "font-style:italic; font-size:16px; color:black;");
+        console.log("%c Finite State Machine", "font-style:italic; font-size:16px; color:black;");
+        switch (currentState) {
+            case config.Scene.START:
+                currentScene = new Scenes.Start();
+                break;
+            case config.Scene.INSTRUCTIONS:
+                //currentScene = new Scenes.Play();
+                break;
+            case config.Scene.EXIT:
+                //
+                currentScene = new Scenes.Play();
+                break;
+        }
+        stage.addChild(currentScene);
+        /*
         // label
-        welcomeLabel = new objects.Label("Welcome", "60px", "Consolas", "#000000", 320, 50, true);
+        welcomeLabel = new objects.Label(
+            "Welcome",
+            "60px",
+            "Consolas",
+            "#000000",
+            320,
+            50,
+            true
+        );
         stage.addChild(welcomeLabel);
+
         // buttons
         btnStart = new objects.Button("btnStart", 320, 200, true);
         btnInstructions = new objects.Button("btnInstructions", 320, 300, true);
         btnExit = new objects.Button("btnExit", 320, 400, true);
+
         stage.addChild(btnStart);
         stage.addChild(btnInstructions);
         stage.addChild(btnExit);
-        // TODO
+
         btnStart.on("click", function () {
-            console.log("clicked");
+            console.log(`clicked`);
             //welcomeLabel.text = "Clicked!";
         });
+        */
     }
     window.addEventListener("load", Init);
 })();
