@@ -1,7 +1,6 @@
 {
   "name": "comp397-hyojin-kim-assignment2",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,5 +18,14 @@
     "@types/preloadjs": "^0.6.32",
     "@types/soundjs": "^0.6.27",
     "@types/tweenjs": "^1.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyojin54/COMP397_Hyojin_Kim_Assignment2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hyojin54/COMP397_Hyojin_Kim_Assignment2/issues"
+  },
+  "homepage": "https://github.com/hyojin54/COMP397_Hyojin_Kim_Assignment2#readme",
+  "description": ""
 }
