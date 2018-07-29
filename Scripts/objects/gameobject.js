@@ -33,12 +33,9 @@ var objects;
             this.halfHeight = this.height * 0.5;
         };
         // public methods
-        GameObject.prototype.Start = function () {
-        };
-        GameObject.prototype.Update = function () {
-        };
-        GameObject.prototype.Reset = function () {
-        };
+        GameObject.prototype.Start = function () { };
+        GameObject.prototype.Update = function () { };
+        GameObject.prototype.Reset = function () { };
         return GameObject;
     }(createjs.Bitmap));
     objects.GameObject = GameObject;

@@ -1,4 +1,4 @@
-module objects {
+namespace objects {
     export abstract class GameObject extends createjs.Bitmap {
         // member variables
         public isCentered: boolean;
@@ -23,7 +23,7 @@ module objects {
          * @private
          * @returns {void}
          */
-        private _initialize():void {
+        private _initialize(): void {
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
             this.halfWidth = this.width * 0.5;
@@ -32,17 +32,10 @@ module objects {
 
         // public methods
 
-        public Start():void {
+        public Start(): void { }
 
-        }
+        public Update(): void { }
 
-        public Update():void {
-
-        }
-
-        public Reset():void {
-
-        }
-
+        public Reset(): void { }
     }
 }
