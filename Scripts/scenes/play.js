@@ -22,18 +22,18 @@ var Scenes;
         // public methods
         Play.prototype.Start = function () {
             console.log("%c Starting Play Scene", "font-style:italic; font-size:20px;");
-            this._playLabel = new objects.Label("Welcome!", "60px", "Consolas", "#000000", 320, 200, true);
-            this._nextButton = new objects.Button("btnExit", 320, 300, true);
+            this._background = new objects.Background();
             this.Main();
         };
-        Play.prototype.Update = function () { };
+        Play.prototype.Update = function () {
+            this._background.Update();
+        };
         Play.prototype.Reset = function () { };
+        Play.prototype.Destroy = function () {
+            this.removeAllChildren();
+        };
         Play.prototype.Main = function () {
-            this.addChild(this._nextButton);
-            this.addChild(this._playLabel);
-            this._nextButton.on("click", function () {
-                this._playLabel.text = "Clicked!";
-            }, this);
+            this.addChild(this._background);
         };
         return Play;
     }(objects.Scene));

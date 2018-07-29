@@ -1,8 +1,7 @@
 namespace Scenes {
     export class Play extends objects.Scene {
         // member variables
-        private _playLabel: objects.Label;
-        private _nextButton: objects.Button;
+        private _background: objects.Background;
 
         // constructors
         constructor() {
@@ -18,35 +17,24 @@ namespace Scenes {
                 `%c Starting Play Scene`,
                 "font-style:italic; font-size:20px;"
             );
-            this._playLabel = new objects.Label(
-                "Welcome!",
-                "60px",
-                "Consolas",
-                "#000000",
-                320,
-                200,
-                true
-            );
-            this._nextButton = new objects.Button("btnExit", 320, 300, true);
+
+            this._background = new objects.Background();
 
             this.Main();
         }
 
-        public Update(): void { }
+        public Update(): void {
+            this._background.Update();
+         }
 
         public Reset(): void { }
 
-        public Main(): void {
-            this.addChild(this._nextButton);
-            this.addChild(this._playLabel);
+        public Destroy(): void {
+            this.removeAllChildren();
+        }
 
-            this._nextButton.on(
-                "click",
-                function () {
-                    this._playLabel.text = "Clicked!";
-                },
-                this
-            );
+        public Main(): void {
+            this.addChild(this._background);
         }
     }
 }

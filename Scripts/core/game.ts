@@ -16,7 +16,8 @@
     let Manifest = [
         { id: "btnStart", src: "/Assets/images/button_start.jpg" },
         { id: "btnExit", src: "/Assets/images/button_exit.jpg" },
-        { id: "btnInstructions", src: "/Assets/images/button_instructions.jpg" }
+        { id: "btnInstructions", src: "/Assets/images/button_instructions.jpg" },
+        { id: "background", src: "/Assets/images/bg4.png" }
     ];
 
     function Init(): void {
@@ -80,34 +81,6 @@
         }
 
         stage.addChild(currentScene);
-
-        /*
-        // label
-        welcomeLabel = new objects.Label(
-            "Welcome",
-            "60px",
-            "Consolas",
-            "#000000",
-            320,
-            50,
-            true
-        );
-        stage.addChild(welcomeLabel);
-
-        // buttons
-        btnStart = new objects.Button("btnStart", 320, 200, true);
-        btnInstructions = new objects.Button("btnInstructions", 320, 300, true);
-        btnExit = new objects.Button("btnExit", 320, 400, true);
-
-        stage.addChild(btnStart);
-        stage.addChild(btnInstructions);
-        stage.addChild(btnExit);
-
-        btnStart.on("click", function () {
-            console.log(`clicked`);
-            //welcomeLabel.text = "Clicked!";
-        });
-        */
     }
 
     window.addEventListener("load", Init);
