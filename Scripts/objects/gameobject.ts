@@ -9,8 +9,8 @@ namespace objects {
 
         // Constructors
         constructor(imageString: string) {
-            super(imageString);
-            //super(managers.Game.AssetManager.getResult(imageString));
+            //super(imageString);
+            super(managers.Game.AssetManager.getResult(imageString));
 
             this._initialize();
         }
