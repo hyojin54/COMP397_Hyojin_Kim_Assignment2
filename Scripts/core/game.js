@@ -4,7 +4,17 @@
     // Game Variables
     var canvas;
     var stage;
-    var helloLabel;
+    var welcomeLabel;
+    var btnStart;
+    var btnExit;
+    var btnInstructions;
+    var Manifest = [
+        { id: "btnStart", src: "/Assets/images/button_start.jpg" },
+        { id: "btnExit", src: "/Assets/images/button_exit.jpg" },
+        { id: "btnInstructions", src: "/Assets/images/button_instructions.jpg" }
+    ];
+    function Init() {
+    }
     function Start() {
         console.log("%c Start Function", "font-weight:bold; font-size:20px; color:red;");
         canvas = document.getElementsByTagName("canvas")[0];
@@ -19,17 +29,29 @@
     }
     function Main() {
         console.log("%c Main Function", "font-style:italic; font-size:16px; color:black;");
-        // this is the Label
-        helloLabel = new createjs.Text("Hello, World!", "60px Consolas", "#000000");
+        // label
+        welcomeLabel = new objects.Label("Welcome", "60px", "Consolas", "#000000", 320, 200, true);
+        stage.addChild(welcomeLabel);
+        // buttons
+        btnStart = new objects.Button("btnStart", 320, 300, true);
+        stage.addChild(btnStart);
+        btnExit = new objects.Button("btnExit", 320, 300, true);
+        stage.addChild(btnExit);
+        //btnInstructions = new objects.Button("btnInstructions", 320, 300, true);
+        //stage.addChild(btnInstructions);
+        /**
+        helloLabel = new createjs.Text("Hello, World!", "60px Consolas", "#000000")
         helloLabel.regX = helloLabel.getBounds().width * 0.5;
         helloLabel.regY = helloLabel.getBounds().height * 0.5;
         helloLabel.x = 320;
         helloLabel.y = 240;
         stage.addChild(helloLabel);
+
         helloLabel.addEventListener("click", function () {
-            console.log("clicked");
+            console.log(`clicked`);
             helloLabel.text = "Clicked!";
         });
+         */
     }
     window.addEventListener("load", Start);
 })();
