@@ -18,7 +18,11 @@
         { id: "background", src: "/Assets/images/bg4.png" },
         { id: "runner", src: "/Assets/images/runner.png" },
         { id: "fruit", src: "/Assets/images/item1.png" },
-        { id: "bird", src: "/Assets/images/bird.png" }
+        { id: "bird", src: "/Assets/images/bird.png" },
+        // sound, collision.ts/ play.ts
+        { id: "yay", src: "/Assets/audio/yay.ogg" },
+        { id: "thunder", src: "/Assets/audio/thunder.ogg" },
+        { id: "engine", src: "/Assets/audio/engine.ogg" }
     ];
     function Init() {
         console.log("%c Assets Loading...", "font-weight:bold; font-size:20px; color:green;");

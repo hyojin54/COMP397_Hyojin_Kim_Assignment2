@@ -23,6 +23,14 @@ var objects;
         }
         // private methods
         Runner.prototype._checkBounds = function () {
+            // check left boundary
+            if (this.x < this.halfWidth) {
+                this.x = this.halfWidth;
+            }
+            // check right boundary
+            if (this.x > config.Screen.WIDTH - this.halfWidth) {
+                this.x = config.Screen.WIDTH - this.halfWidth;
+            }
             // check top boundary
             if (this.y < this.halfHeight) {
                 this.y = this.halfHeight;
@@ -37,8 +45,10 @@ var objects;
             this.regX = this.halfWidth;
             this.regY = this.halfHeight;
             this.x = 580;
+            this.y = 0;
         };
         Runner.prototype.Update = function () {
+            this.x = managers.Game.Stage.mouseX;
             this.y = managers.Game.Stage.mouseY;
             this._checkBounds();
         };

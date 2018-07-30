@@ -20,7 +20,11 @@
         { id: "background", src: "/Assets/images/bg4.png" },
         { id: "runner", src: "/Assets/images/runner.png" },
         { id: "fruit", src: "/Assets/images/item1.png" },
-        { id: "bird", src: "/Assets/images/bird.png" }
+        { id: "bird", src: "/Assets/images/bird.png" },
+        // sound, collision.ts/ play.ts
+        { id: "yay", src: "/Assets/audio/yay.ogg" },
+        { id: "thunder", src: "/Assets/audio/thunder.ogg" },
+        { id: "engine", src: "/Assets/audio/engine.ogg" }
     ];
 
     function Init(): void {
@@ -72,10 +76,10 @@
             "font-style:italic; font-size:16px; color:black;"
         );
 
-        if(currentScene) {
+        if (currentScene) {
             currentScene.Destroy();
             stage.removeChild(currentScene);
-         }
+        }
 
         switch (currentState) {
             case config.Scene.START:

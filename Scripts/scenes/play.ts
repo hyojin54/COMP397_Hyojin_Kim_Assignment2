@@ -7,6 +7,8 @@ namespace scenes {
         private _birds: objects.Bird[];
         private _birdsCount: number;
 
+        public engineSound: createjs.AbstractSoundInstance;
+
         // constructors
         constructor() {
             super();
@@ -28,6 +30,11 @@ namespace scenes {
                 "font-style:italic; font-size:20px;"
             );
 
+            // sound
+            this.engineSound = createjs.Sound.play("engine");
+            this.engineSound.loop = -1;
+            this.engineSound.volume = 0.1;
+
             this._background = new objects.Background();
             this._runner = new objects.Runner();
             this._fruit = new objects.Fruit();
@@ -45,8 +52,11 @@ namespace scenes {
             this._runner.Update();
             this._fruit.Update();
 
-            this._birds.forEach(cloud => {
-                cloud.Update();
+            managers.Collision.check(this._runner, this._fruit);
+
+            this._birds.forEach(bird => {
+                bird.Update();
+                managers.Collision.check(this._runner, bird);
             });
          }
 

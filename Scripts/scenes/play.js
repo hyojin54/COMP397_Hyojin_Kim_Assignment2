@@ -27,6 +27,10 @@ var scenes;
         // public methods
         Play.prototype.Start = function () {
             console.log("%c Starting Play Scene", "font-style:italic; font-size:20px;");
+            // sound
+            this.engineSound = createjs.Sound.play("engine");
+            this.engineSound.loop = -1;
+            this.engineSound.volume = 0.1;
             this._background = new objects.Background();
             this._runner = new objects.Runner();
             this._fruit = new objects.Fruit();
@@ -37,11 +41,14 @@ var scenes;
             this.Main();
         };
         Play.prototype.Update = function () {
+            var _this = this;
             this._background.Update();
             this._runner.Update();
             this._fruit.Update();
-            this._birds.forEach(function (cloud) {
-                cloud.Update();
+            managers.Collision.check(this._runner, this._fruit);
+            this._birds.forEach(function (bird) {
+                bird.Update();
+                managers.Collision.check(_this._runner, bird);
             });
         };
         Play.prototype.Reset = function () { };
