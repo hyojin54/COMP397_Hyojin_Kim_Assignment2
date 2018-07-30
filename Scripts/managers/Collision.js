@@ -15,6 +15,9 @@ var managers;
                             var yaySound = createjs.Sound.play("yay");
                             yaySound.volume = 0.1;
                             managers.Game.ScoreBoardManager.Score += 100;
+                            if (managers.Game.ScoreBoardManager.Score > managers.Game.ScoreBoardManager.HighScore) {
+                                managers.Game.ScoreBoardManager.HighScore = managers.Game.ScoreBoardManager.Score;
+                            }
                             break;
                         case "bird":
                             var thunderSound = createjs.Sound.play("thunder");

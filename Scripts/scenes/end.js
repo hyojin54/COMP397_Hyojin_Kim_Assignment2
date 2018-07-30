@@ -22,8 +22,8 @@ var scenes;
         // public methods
         End.prototype.Start = function () {
             this._background = new objects.Background();
-            this._gameOverLabel = new objects.Label("Game Over!", "60px", "Consolas", "#FFFF00", 320, 240, true);
-            this._restartButton = new objects.Button("btnStart", 320, 360, true);
+            this._gameOverLabel = new objects.Label("Game Over!", "80px", "Consolas", "#FFFF00", config.Screen.HALF_WIDTH, 160, true);
+            this._restartButton = new objects.Button("btnStart", config.Screen.HALF_WIDTH, 360, true);
             this.Main();
         };
         End.prototype.Update = function () {
@@ -38,6 +38,7 @@ var scenes;
             console.log("Starting End Scene");
             this.addChild(this._background);
             this.addChild(this._gameOverLabel);
+            this.addChild(managers.Game.ScoreBoardManager.HighScoreLabel);
             this.addChild(this._restartButton);
             this._restartButton.on("click", function () {
                 managers.Game.ScoreBoardManager.Reset();
