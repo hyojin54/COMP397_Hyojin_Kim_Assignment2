@@ -1,9 +1,8 @@
 namespace scenes {
-    export class Start extends objects.Scene {
+    export class Instructions extends objects.Scene {
         // member variables
-        private _welcomeLabel: objects.Label;
+        private _instructionLabel: objects.Label;
         private _btnStart: objects.Button;
-        private _btnInstructions: objects.Button;
         private _btnExit: objects.Button;
 
         // constructors
@@ -22,17 +21,16 @@ namespace scenes {
                 `%c Starting Start Scene`,
                 "font-style:italic; font-size:20px;"
             );
-            this._welcomeLabel = new objects.Label(
-                "Welcome! Enjoy the game!",
-                "40px",
+            this._instructionLabel = new objects.Label(
+                "This game is simple. \n\nYou should get fruits with 100 points, avoid birds. \n\nHave fun!! :)",
+                "20px",
                 "Consolas",
                 "#000000",
                 320,
-                50,
+                150,
                 true
             );
-            this._btnStart = new objects.Button("btnStart", 320, 200, true);
-            this._btnInstructions = new objects.Button("btnInstructions", 320, 300, true);
+            this._btnStart = new objects.Button("btnStart", 320, 300, true);
             this._btnExit = new objects.Button("btnExit", 320, 400, true);
 
             this.Main();
@@ -43,9 +41,8 @@ namespace scenes {
         public Reset(): void { }
 
         public Main(): void {
-            this.addChild(this._welcomeLabel);
+            this.addChild(this._instructionLabel);
             this.addChild(this._btnStart);
-            this.addChild(this._btnInstructions);
             this.addChild(this._btnExit);
 
             this._btnStart.on(
@@ -57,23 +54,11 @@ namespace scenes {
                 this
             );
 
-            this._btnInstructions.on(
-                "click",
-                function () {
-                    managers.Game.CurrentState = config.Scene.INSTRUCTIONS;
-                    this.removeAllChildren();
-                },
-                this
-            );
-
             this._btnExit.on(
                 "click",
                 function () {
-                    var myWindow = window.open("", "_self");
-                    myWindow.document.write("");
-                    setTimeout(function () {
-                        myWindow.close();
-                    }, 1000);
+                    managers.Game.CurrentState = config.Scene.START;
+                    this.removeAllChildren();
                 },
                 this
             );

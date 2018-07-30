@@ -10,49 +10,40 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var scenes;
 (function (scenes) {
-    var Start = /** @class */ (function (_super) {
-        __extends(Start, _super);
+    var Instructions = /** @class */ (function (_super) {
+        __extends(Instructions, _super);
         // constructors
-        function Start() {
+        function Instructions() {
             var _this = _super.call(this) || this;
             _this.Start();
             return _this;
         }
         // private methods
         // public methods
-        Start.prototype.Start = function () {
+        Instructions.prototype.Start = function () {
             console.log("%c Starting Start Scene", "font-style:italic; font-size:20px;");
-            this._welcomeLabel = new objects.Label("Welcome! Enjoy the game!", "40px", "Consolas", "#000000", 320, 50, true);
-            this._btnStart = new objects.Button("btnStart", 320, 200, true);
-            this._btnInstructions = new objects.Button("btnInstructions", 320, 300, true);
+            this._instructionLabel = new objects.Label("This game is simple. \n\nYou should get fruits with 100 points, avoid birds. \n\nHave fun!! :)", "20px", "Consolas", "#000000", 320, 150, true);
+            this._btnStart = new objects.Button("btnStart", 320, 300, true);
             this._btnExit = new objects.Button("btnExit", 320, 400, true);
             this.Main();
         };
-        Start.prototype.Update = function () { };
-        Start.prototype.Reset = function () { };
-        Start.prototype.Main = function () {
-            this.addChild(this._welcomeLabel);
+        Instructions.prototype.Update = function () { };
+        Instructions.prototype.Reset = function () { };
+        Instructions.prototype.Main = function () {
+            this.addChild(this._instructionLabel);
             this.addChild(this._btnStart);
-            this.addChild(this._btnInstructions);
             this.addChild(this._btnExit);
             this._btnStart.on("click", function () {
                 managers.Game.CurrentState = config.Scene.PLAY;
                 this.removeAllChildren();
             }, this);
-            this._btnInstructions.on("click", function () {
-                managers.Game.CurrentState = config.Scene.INSTRUCTIONS;
+            this._btnExit.on("click", function () {
+                managers.Game.CurrentState = config.Scene.START;
                 this.removeAllChildren();
             }, this);
-            this._btnExit.on("click", function () {
-                var myWindow = window.open("", "_self");
-                myWindow.document.write("");
-                setTimeout(function () {
-                    myWindow.close();
-                }, 1000);
-            }, this);
         };
-        return Start;
+        return Instructions;
     }(objects.Scene));
-    scenes.Start = Start;
+    scenes.Instructions = Instructions;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=start.js.map
+//# sourceMappingURL=instructions.js.map

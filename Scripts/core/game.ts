@@ -98,7 +98,7 @@
                 break;
 
             case config.Scene.INSTRUCTIONS:
-                //
+                currentScene = new scenes.Instructions();
                 break;
 
             case config.Scene.EXIT:
