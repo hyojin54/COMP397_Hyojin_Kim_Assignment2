@@ -24,11 +24,13 @@ var scenes;
             console.log("%c Starting Play Scene", "font-style:italic; font-size:20px;");
             this._background = new objects.Background();
             this._runner = new objects.Runner();
+            this._fruit = new objects.Fruit();
             this.Main();
         };
         Play.prototype.Update = function () {
             this._background.Update();
             this._runner.Update();
+            this._fruit.Update();
         };
         Play.prototype.Reset = function () { };
         Play.prototype.Destroy = function () {
@@ -37,6 +39,7 @@ var scenes;
         Play.prototype.Main = function () {
             this.addChild(this._background);
             this.addChild(this._runner);
+            this.addChild(this._fruit);
         };
         return Play;
     }(objects.Scene));

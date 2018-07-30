@@ -3,6 +3,7 @@ namespace scenes {
         // member variables
         private _background: objects.Background;
         private _runner: objects.Runner;
+        private _fruit: objects.Fruit;
 
         // constructors
         constructor() {
@@ -21,6 +22,7 @@ namespace scenes {
 
             this._background = new objects.Background();
             this._runner = new objects.Runner();
+            this._fruit = new objects.Fruit();
 
             this.Main();
         }
@@ -28,6 +30,7 @@ namespace scenes {
         public Update(): void {
             this._background.Update();
             this._runner.Update();
+            this._fruit.Update();
          }
 
         public Reset(): void { }
@@ -39,6 +42,7 @@ namespace scenes {
         public Main(): void {
             this.addChild(this._background);
             this.addChild(this._runner);
+            this.addChild(this._fruit);
         }
     }
 }
