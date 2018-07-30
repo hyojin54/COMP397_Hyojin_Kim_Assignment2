@@ -1,3 +1,13 @@
+/**
+ * end.ts
+ * This is end scene class
+ * 
+ * Author's name: Hyojin Kim
+ * Student Number: 300950009
+ * Last Modified by Hyojin Kim
+ * Date last Modified: July 29, 2018
+ * Revision: 1.0
+ */
 namespace scenes {
     export class End extends objects.Scene {
         // member variables
@@ -74,11 +84,8 @@ namespace scenes {
             this._btnExit.on(
                 "click",
                 function () {
-                    var myWindow = window.open("", "_self");
-                    myWindow.document.write("");
-                    setTimeout(function () {
-                        myWindow.close();
-                    }, 1000);
+                    managers.Game.ScoreBoardManager.Reset();
+                    managers.Game.CurrentState = config.Scene.START;
                 },
                 this
             );

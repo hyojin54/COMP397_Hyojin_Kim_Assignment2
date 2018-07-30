@@ -1,3 +1,13 @@
+/**
+ * gameobject.ts
+ * This is game object class
+ * 
+ * Author's name: Hyojin Kim
+ * Student Number: 300950009
+ * Last Modified by Hyojin Kim
+ * Date last Modified: July 29, 2018
+ * Revision: 1.0
+ */
 namespace objects {
     export abstract class GameObject extends createjs.Bitmap {
         // member variables

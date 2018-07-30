@@ -8,6 +8,16 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+/**
+ * fruit2.ts
+ * This is fruit2 object class
+ *
+ * Author's name: Hyojin Kim
+ * Student Number: 300950009
+ * Last Modified by Hyojin Kim
+ * Date last Modified: July 30, 2018
+ * Revision: 1.0
+ */
 var objects;
 (function (objects) {
     var Fruit2 = /** @class */ (function (_super) {

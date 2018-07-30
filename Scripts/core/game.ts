@@ -1,3 +1,14 @@
+/**
+ * game.ts
+ * This is game core class
+ * 
+ * Author's name: Hyojin Kim
+ * Student Number: 300950009
+ * Last Modified by Hyojin Kim
+ * Date last Modified: July 29, 2018
+ * Revision: 1.0
+ */
+
 // IIFE -- Immediately Invoked Function Expression
 // also called self executing anonymous function
 (function () {

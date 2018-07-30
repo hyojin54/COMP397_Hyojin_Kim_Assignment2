@@ -8,6 +8,16 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+/**
+ * play.ts
+ * This is play scene class
+ *
+ * Author's name: Hyojin Kim
+ * Student Number: 300950009
+ * Last Modified by Hyojin Kim
+ * Date last Modified: July 29, 2018
+ * Revision: 1.0
+ */
 var scenes;
 (function (scenes) {
     var Play = /** @class */ (function (_super) {

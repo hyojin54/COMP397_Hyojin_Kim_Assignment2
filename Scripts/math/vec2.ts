@@ -1,3 +1,13 @@
+/**
+ * math.ts
+ * This is two vector class
+ * 
+ * Author's name: Hyojin Kim
+ * Student Number: 300950009
+ * Last Modified by Hyojin Kim
+ * Date last Modified: July 30, 2018
+ * Revision: 1.0
+ */
 module math {
     export class Vec2 extends createjs.Point {
         // member variables

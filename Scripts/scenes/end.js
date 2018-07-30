@@ -8,6 +8,16 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+/**
+ * end.ts
+ * This is end scene class
+ *
+ * Author's name: Hyojin Kim
+ * Student Number: 300950009
+ * Last Modified by Hyojin Kim
+ * Date last Modified: July 29, 2018
+ * Revision: 1.0
+ */
 var scenes;
 (function (scenes) {
     var End = /** @class */ (function (_super) {
@@ -46,11 +56,8 @@ var scenes;
                 managers.Game.CurrentState = config.Scene.PLAY;
             }, this);
             this._btnExit.on("click", function () {
-                var myWindow = window.open("", "_self");
-                myWindow.document.write("");
-                setTimeout(function () {
-                    myWindow.close();
-                }, 1000);
+                managers.Game.ScoreBoardManager.Reset();
+                managers.Game.CurrentState = config.Scene.START;
             }, this);
         };
         return End;
