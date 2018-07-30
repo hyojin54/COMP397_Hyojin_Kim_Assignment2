@@ -14,12 +14,11 @@ namespace managers {
                 if (!object2.isColliding) {
                     object2.isColliding = true;
 
-                    let yaySound = createjs.Sound.play("yay");
-
                     switch (object2.name) {
 
-                        case "fruit1":                 
-                            yaySound.volume = 0.1;
+                        case "fruit1":
+                            let coinSound = createjs.Sound.play("coinSound");
+                            coinSound.volume = 0.1;
                             managers.Game.ScoreBoardManager.Score += 100;
 
                             if (managers.Game.ScoreBoardManager.Score > managers.Game.ScoreBoardManager.HighScore) {
@@ -28,7 +27,8 @@ namespace managers {
                             break;
 
                         case "fruit2":
-                            yaySound.volume = 0.1;
+                            let coinSound2 = createjs.Sound.play("coinSound");
+                            coinSound2.volume = 0.1;
                             managers.Game.ScoreBoardManager.Score += 100;
 
                             if (managers.Game.ScoreBoardManager.Score > managers.Game.ScoreBoardManager.HighScore) {
@@ -37,8 +37,8 @@ namespace managers {
                             break;
 
                         case "bird":
-                            let thunderSound = createjs.Sound.play("thunder");
-                            thunderSound.volume = 0.1;
+                            let birdSound = createjs.Sound.play("birdSound");
+                            birdSound.volume = 0.1;
                             managers.Game.ScoreBoardManager.Lives -= 1;
 
                             // check if lives falls below 1

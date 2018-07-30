@@ -10,25 +10,26 @@ var managers;
                 object1.halfHeight + object2.halfHeight) {
                 if (!object2.isColliding) {
                     object2.isColliding = true;
-                    var yaySound = createjs.Sound.play("yay");
                     switch (object2.name) {
                         case "fruit1":
-                            yaySound.volume = 0.1;
+                            var coinSound = createjs.Sound.play("coinSound");
+                            coinSound.volume = 0.1;
                             managers.Game.ScoreBoardManager.Score += 100;
                             if (managers.Game.ScoreBoardManager.Score > managers.Game.ScoreBoardManager.HighScore) {
                                 managers.Game.ScoreBoardManager.HighScore = managers.Game.ScoreBoardManager.Score;
                             }
                             break;
                         case "fruit2":
-                            yaySound.volume = 0.1;
+                            var coinSound2 = createjs.Sound.play("coinSound");
+                            coinSound2.volume = 0.1;
                             managers.Game.ScoreBoardManager.Score += 100;
                             if (managers.Game.ScoreBoardManager.Score > managers.Game.ScoreBoardManager.HighScore) {
                                 managers.Game.ScoreBoardManager.HighScore = managers.Game.ScoreBoardManager.Score;
                             }
                             break;
                         case "bird":
-                            var thunderSound = createjs.Sound.play("thunder");
-                            thunderSound.volume = 0.1;
+                            var birdSound = createjs.Sound.play("birdSound");
+                            birdSound.volume = 0.1;
                             managers.Game.ScoreBoardManager.Lives -= 1;
                             // check if lives falls below 1
                             if (managers.Game.ScoreBoardManager.Lives <= 0) {

@@ -28,9 +28,9 @@ var scenes;
         Play.prototype.Start = function () {
             console.log("%c Starting Play Scene", "font-style:italic; font-size:20px;");
             // sound
-            this.engineSound = createjs.Sound.play("engine");
-            this.engineSound.loop = -1;
-            this.engineSound.volume = 0.1;
+            this.backgroundSound = createjs.Sound.play("backgroundSound");
+            this.backgroundSound.loop = -1;
+            this.backgroundSound.volume = 0.5;
             this._background = new objects.Background();
             this._runner = new objects.Runner();
             this._fruit = new objects.Fruit();
@@ -56,7 +56,10 @@ var scenes;
         };
         Play.prototype.Reset = function () { };
         Play.prototype.Destroy = function () {
-            this.engineSound.stop();
+            this.backgroundSound.stop();
+            this.gameoverSound = createjs.Sound.play("gameoverSound");
+            this.backgroundSound.loop = -1;
+            this.backgroundSound.volume = 0.5;
             this.removeAllChildren();
         };
         Play.prototype.Main = function () {

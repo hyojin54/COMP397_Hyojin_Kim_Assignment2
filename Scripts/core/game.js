@@ -4,15 +4,12 @@
     // Game Variables
     var canvas;
     var stage;
-    var welcomeLabel;
-    var btnStart;
-    var btnExit;
-    var btnInstructions;
     var assetManager;
     var currentScene;
     var currentState;
     var scoreBoardManager;
     var Manifest = [
+        // images
         { id: "btnRestart", src: "/Assets/images/button_restart.jpg" },
         { id: "btnStart", src: "/Assets/images/button_start.jpg" },
         { id: "btnExit", src: "/Assets/images/button_exit.jpg" },
@@ -22,10 +19,11 @@
         { id: "fruit1", src: "/Assets/images/item1.png" },
         { id: "fruit2", src: "/Assets/images/item4.png" },
         { id: "bird", src: "/Assets/images/bird.png" },
-        // sound, collision.ts/ play.ts
-        { id: "yay", src: "/Assets/audio/yay.ogg" },
-        { id: "thunder", src: "/Assets/audio/thunder.ogg" },
-        { id: "engine", src: "/Assets/audio/engine.ogg" }
+        // audio
+        { id: "backgroundSound", src: "/Assets/audio/background.mp3" },
+        { id: "birdSound", src: "/Assets/audio/bird.wav" },
+        { id: "coinSound", src: "/Assets/audio/coin.wav" },
+        { id: "gameoverSound", src: "/Assets/audio/gameover.wav" }
     ];
     function Init() {
         console.log("%c Assets Loading...", "font-weight:bold; font-size:20px; color:green;");

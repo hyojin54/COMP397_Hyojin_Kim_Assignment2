@@ -4,10 +4,6 @@
     // Game Variables
     let canvas: HTMLCanvasElement;
     let stage: createjs.Stage;
-    let welcomeLabel: objects.Label;
-    let btnStart: objects.Button;
-    let btnExit: objects.Button;
-    let btnInstructions: objects.Button;
 
     let assetManager: createjs.LoadQueue;
     let currentScene: objects.Scene;
@@ -15,6 +11,7 @@
     let scoreBoardManager: managers.ScoreBoard;
 
     let Manifest = [
+        // images
         { id: "btnRestart", src: "/Assets/images/button_restart.jpg" },
         { id: "btnStart", src: "/Assets/images/button_start.jpg" },
         { id: "btnExit", src: "/Assets/images/button_exit.jpg" },
@@ -24,10 +21,11 @@
         { id: "fruit1", src: "/Assets/images/item1.png" },
         { id: "fruit2", src: "/Assets/images/item4.png" },
         { id: "bird", src: "/Assets/images/bird.png" },
-        // sound, collision.ts/ play.ts
-        { id: "yay", src: "/Assets/audio/yay.ogg" },
-        { id: "thunder", src: "/Assets/audio/thunder.ogg" },
-        { id: "engine", src: "/Assets/audio/engine.ogg" }
+        // audio
+        { id: "backgroundSound", src: "/Assets/audio/background.mp3" },
+        { id: "birdSound", src: "/Assets/audio/bird.wav" },
+        { id: "coinSound", src: "/Assets/audio/coin.wav" },
+        { id: "gameoverSound", src: "/Assets/audio/gameover.wav" }
     ];
 
     function Init(): void {

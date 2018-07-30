@@ -8,7 +8,8 @@ namespace scenes {
         private _birds: objects.Bird[];
         private _birdsCount: number;
 
-        public engineSound: createjs.AbstractSoundInstance;
+        public backgroundSound: createjs.AbstractSoundInstance;
+        public gameoverSound: createjs.AbstractSoundInstance;
 
         // constructors
         constructor() {
@@ -32,9 +33,9 @@ namespace scenes {
             );
 
             // sound
-            this.engineSound = createjs.Sound.play("engine");
-            this.engineSound.loop = -1;
-            this.engineSound.volume = 0.1;
+            this.backgroundSound = createjs.Sound.play("backgroundSound");
+            this.backgroundSound.loop = -1;
+            this.backgroundSound.volume = 0.5;
 
             this._background = new objects.Background();
             this._runner = new objects.Runner();
@@ -67,7 +68,12 @@ namespace scenes {
         public Reset(): void { }
 
         public Destroy(): void {
-            this.engineSound.stop();
+            this.backgroundSound.stop();
+
+            this.gameoverSound = createjs.Sound.play("gameoverSound");
+            this.backgroundSound.loop = -1;
+            this.backgroundSound.volume = 0.5;
+
             this.removeAllChildren();
         }
 
