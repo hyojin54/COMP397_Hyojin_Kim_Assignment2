@@ -1,6 +1,7 @@
 namespace objects {
-    export class Fruit extends objects.GameObject {
+    export class Fruit2 extends objects.GameObject {
         // member variables
+        private _verticalSpeed: number;
         private _horizontalSpeed: number;
 
         /**
@@ -8,15 +9,15 @@ namespace objects {
          * @memberof Fruit
          */
         constructor() {
-            super("fruit1");
+            super("fruit2");
 
             this.Start();
         }
 
         // private methods
         private _checkBounds(): void {
-            // check right boundary
-            if(this.x > config.Screen.WIDTH + this.halfWidth) {
+            // check bottom boundary
+            if (this.y > config.Screen.HEIGHT + this.halfHeight) {
                 this.Reset();
             }
         }
@@ -25,20 +26,21 @@ namespace objects {
         public Start(): void {
             this.regX = this.halfWidth;
             this.regY = this.halfHeight;
-            this._horizontalSpeed = 5;
+            //this._horizontalSpeed = 5;
             this.Reset();
         }
 
         public Update(): void {
             this.x += this._horizontalSpeed;
+            this.y += this._verticalSpeed;
             this._checkBounds();
         }
 
         public Reset(): void {
-            this.x = -this.width;
-            this.y = Math.floor(
-                Math.random() * (config.Screen.HEIGHT - this.height) + this.halfHeight
-            );
+            this._verticalSpeed = Math.floor((Math.random() * 5) + 5); // between 5 and 10 ppf
+            this._horizontalSpeed = Math.floor((Math.random() * 4) - 2); // between -2 and 2 ppf
+            this.y = -this.height;
+            this.x = Math.floor((Math.random() * (config.Screen.WIDTH - this.width)) + this.halfWidth);
         }
     }
 }

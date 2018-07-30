@@ -21,7 +21,8 @@
         { id: "btnInstructions", src: "/Assets/images/button_instructions.jpg" },
         { id: "background", src: "/Assets/images/bg4.png" },
         { id: "runner", src: "/Assets/images/runner.png" },
-        { id: "fruit", src: "/Assets/images/item1.png" },
+        { id: "fruit1", src: "/Assets/images/item1.png" },
+        { id: "fruit2", src: "/Assets/images/item4.png" },
         { id: "bird", src: "/Assets/images/bird.png" },
         // sound, collision.ts/ play.ts
         { id: "yay", src: "/Assets/audio/yay.ogg" },

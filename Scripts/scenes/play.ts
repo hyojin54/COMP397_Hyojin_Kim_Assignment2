@@ -4,6 +4,7 @@ namespace scenes {
         private _background: objects.Background;
         private _runner: objects.Runner;
         private _fruit: objects.Fruit;
+        private _fruit2: objects.Fruit2;
         private _birds: objects.Bird[];
         private _birdsCount: number;
 
@@ -38,6 +39,7 @@ namespace scenes {
             this._background = new objects.Background();
             this._runner = new objects.Runner();
             this._fruit = new objects.Fruit();
+            this._fruit2 = new objects.Fruit2();
 
             // creates an empty array of type Bird
             this._birds = new Array<objects.Bird>();
@@ -51,8 +53,10 @@ namespace scenes {
             this._background.Update();
             this._runner.Update();
             this._fruit.Update();
+            this._fruit2.Update();
 
             managers.Collision.check(this._runner, this._fruit);
+            managers.Collision.check(this._runner, this._fruit2);
 
             this._birds.forEach(bird => {
                 bird.Update();
@@ -71,6 +75,7 @@ namespace scenes {
             this.addChild(this._background);
             this.addChild(this._runner);
             this.addChild(this._fruit);
+            this.addChild(this._fruit2);
 
             for (const bird of this._birds) {
                 this.addChild(bird);

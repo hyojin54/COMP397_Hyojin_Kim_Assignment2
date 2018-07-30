@@ -13,10 +13,21 @@ namespace managers {
             ) {
                 if (!object2.isColliding) {
                     object2.isColliding = true;
+
+                    let yaySound = createjs.Sound.play("yay");
+
                     switch (object2.name) {
 
-                        case "fruit":
-                            let yaySound = createjs.Sound.play("yay");
+                        case "fruit1":                 
+                            yaySound.volume = 0.1;
+                            managers.Game.ScoreBoardManager.Score += 100;
+
+                            if (managers.Game.ScoreBoardManager.Score > managers.Game.ScoreBoardManager.HighScore) {
+                                managers.Game.ScoreBoardManager.HighScore = managers.Game.ScoreBoardManager.Score;
+                            }
+                            break;
+
+                        case "fruit2":
                             yaySound.volume = 0.1;
                             managers.Game.ScoreBoardManager.Score += 100;
 

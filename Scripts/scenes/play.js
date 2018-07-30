@@ -34,6 +34,7 @@ var scenes;
             this._background = new objects.Background();
             this._runner = new objects.Runner();
             this._fruit = new objects.Fruit();
+            this._fruit2 = new objects.Fruit2();
             // creates an empty array of type Bird
             this._birds = new Array();
             this._birdsCount = 2;
@@ -45,7 +46,9 @@ var scenes;
             this._background.Update();
             this._runner.Update();
             this._fruit.Update();
+            this._fruit2.Update();
             managers.Collision.check(this._runner, this._fruit);
+            managers.Collision.check(this._runner, this._fruit2);
             this._birds.forEach(function (bird) {
                 bird.Update();
                 managers.Collision.check(_this._runner, bird);
@@ -60,6 +63,7 @@ var scenes;
             this.addChild(this._background);
             this.addChild(this._runner);
             this.addChild(this._fruit);
+            this.addChild(this._fruit2);
             for (var _i = 0, _a = this._birds; _i < _a.length; _i++) {
                 var bird = _a[_i];
                 this.addChild(bird);

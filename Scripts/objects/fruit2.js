@@ -10,41 +10,44 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var objects;
 (function (objects) {
-    var Fruit = /** @class */ (function (_super) {
-        __extends(Fruit, _super);
+    var Fruit2 = /** @class */ (function (_super) {
+        __extends(Fruit2, _super);
         /**
          *Creates an instance of Fruit.
          * @memberof Fruit
          */
-        function Fruit() {
-            var _this = _super.call(this, "fruit1") || this;
+        function Fruit2() {
+            var _this = _super.call(this, "fruit2") || this;
             _this.Start();
             return _this;
         }
         // private methods
-        Fruit.prototype._checkBounds = function () {
-            // check right boundary
-            if (this.x > config.Screen.WIDTH + this.halfWidth) {
+        Fruit2.prototype._checkBounds = function () {
+            // check bottom boundary
+            if (this.y > config.Screen.HEIGHT + this.halfHeight) {
                 this.Reset();
             }
         };
         // public methods
-        Fruit.prototype.Start = function () {
+        Fruit2.prototype.Start = function () {
             this.regX = this.halfWidth;
             this.regY = this.halfHeight;
-            this._horizontalSpeed = 5;
+            //this._horizontalSpeed = 5;
             this.Reset();
         };
-        Fruit.prototype.Update = function () {
+        Fruit2.prototype.Update = function () {
             this.x += this._horizontalSpeed;
+            this.y += this._verticalSpeed;
             this._checkBounds();
         };
-        Fruit.prototype.Reset = function () {
-            this.x = -this.width;
-            this.y = Math.floor(Math.random() * (config.Screen.HEIGHT - this.height) + this.halfHeight);
+        Fruit2.prototype.Reset = function () {
+            this._verticalSpeed = Math.floor((Math.random() * 5) + 5); // between 5 and 10 ppf
+            this._horizontalSpeed = Math.floor((Math.random() * 4) - 2); // between -2 and 2 ppf
+            this.y = -this.height;
+            this.x = Math.floor((Math.random() * (config.Screen.WIDTH - this.width)) + this.halfWidth);
         };
-        return Fruit;
+        return Fruit2;
     }(objects.GameObject));
-    objects.Fruit = Fruit;
+    objects.Fruit2 = Fruit2;
 })(objects || (objects = {}));
-//# sourceMappingURL=fruit.js.map
+//# sourceMappingURL=fruit2.js.map
