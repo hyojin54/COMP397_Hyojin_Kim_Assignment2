@@ -22,12 +22,12 @@ namespace scenes {
                 "font-style:italic; font-size:20px;"
             );
             this._instructionLabel = new objects.Label(
-                "This game is simple. \n\nYou should get fruits with 100 points, avoid birds. \n\nHave fun!! :)",
-                "20px",
+                "This game is simple. \n\nYou can get fruits that each is 100 point, and avoid birds. \n\nIf you collide with the bird, you lose your one life. \n\nHave fun!! :)",
+                "16px",
                 "Consolas",
                 "#000000",
                 320,
-                150,
+                100,
                 true
             );
             this._btnStart = new objects.Button("btnStart", 320, 300, true);
