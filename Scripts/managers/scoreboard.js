@@ -83,7 +83,7 @@ var managers;
         ScoreBoard.prototype.Start = function () {
             this._livesLabel = new objects.Label("Lives: 99", "30px", "Consolas", "#FFFF00", 20, 20, false);
             this._scoreLabel = new objects.Label("Score: 99999", "30px", "Consolas", "#FFFF00", 370, 20, false);
-            this._highScoreLabel = new objects.Label("High Score: 99999", "60px", "Consolas", "#FFFF00", config.Screen.HALF_WIDTH, config.Screen.HALF_HEIGHT, true);
+            this._highScoreLabel = new objects.Label("High Score: 99999", "60px", "Consolas", "#FFFF00", config.Screen.HALF_WIDTH, config.Screen.HALF_HEIGHT - 50, true);
             this.HighScore = 0;
             this.Reset();
         };

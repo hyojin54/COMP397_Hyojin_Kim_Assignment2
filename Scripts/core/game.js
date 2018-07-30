@@ -13,7 +13,7 @@
     var currentState;
     var scoreBoardManager;
     var Manifest = [
-        // todo. restart
+        { id: "btnRestart", src: "/Assets/images/button_restart.jpg" },
         { id: "btnStart", src: "/Assets/images/button_start.jpg" },
         { id: "btnExit", src: "/Assets/images/button_exit.jpg" },
         { id: "btnInstructions", src: "/Assets/images/button_instructions.jpg" },

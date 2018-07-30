@@ -101,7 +101,7 @@ namespace managers {
         "Consolas",
         "#FFFF00",
         config.Screen.HALF_WIDTH,
-        config.Screen.HALF_HEIGHT,
+        config.Screen.HALF_HEIGHT - 50,
         true
       );
 

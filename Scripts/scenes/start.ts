@@ -1,8 +1,10 @@
-namespace scenes  {
+namespace scenes {
     export class Start extends objects.Scene {
         // member variables
         private _welcomeLabel: objects.Label;
-        private _startButton: objects.Button;
+        private _btnStart: objects.Button;
+        private _btnInstructions: objects.Button;
+        private _btnExit: objects.Button;
 
         // constructors
         constructor() {
@@ -14,7 +16,7 @@ namespace scenes  {
         // private methods
 
         // public methods
-        
+
         public Start(): void {
             console.log(
                 `%c Starting Start Scene`,
@@ -26,10 +28,17 @@ namespace scenes  {
                 "Consolas",
                 "#000000",
                 320,
-                200,
+                50,
                 true
             );
-            this._startButton = new objects.Button("btnStart", 320, 300, true);
+            this._btnStart = new objects.Button("btnStart", 320, 200, true);
+            this._btnInstructions = new objects.Button(
+                "btnInstructions",
+                320,
+                300,
+                true
+            );
+            this._btnExit = new objects.Button("btnExit", 320, 400, true);
 
             this.Main();
         }
@@ -39,14 +48,37 @@ namespace scenes  {
         public Reset(): void { }
 
         public Main(): void {
-            this.addChild(this._startButton);
             this.addChild(this._welcomeLabel);
+            this.addChild(this._btnStart);
+            this.addChild(this._btnInstructions);
+            this.addChild(this._btnExit);
 
-            this._startButton.on(
+            this._btnStart.on(
                 "click",
                 function () {
                     managers.Game.CurrentState = config.Scene.PLAY;
                     this.removeAllChildren();
+                },
+                this
+            );
+
+            this._btnInstructions.on(
+                "click",
+                function () {
+                    //managers.Game.CurrentState = config.Scene.PLAY;
+                    //this.removeAllChildren();
+                },
+                this
+            );
+
+            this._btnExit.on(
+                "click",
+                function () {
+                    var myWindow = window.open("", "_self");
+                    myWindow.document.write("");
+                    setTimeout(function () {
+                        myWindow.close();
+                    }, 1000);
                 },
                 this
             );
