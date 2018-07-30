@@ -63,6 +63,8 @@ var scenes;
                 var bird = _a[_i];
                 this.addChild(bird);
             }
+            this.addChild(managers.Game.ScoreBoardManager.LivesLabel);
+            this.addChild(managers.Game.ScoreBoardManager.ScoreLabel);
         };
         return Play;
     }(objects.Scene));

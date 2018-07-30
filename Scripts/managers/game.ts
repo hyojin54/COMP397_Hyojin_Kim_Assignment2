@@ -4,5 +4,6 @@ namespace managers {
         public static CurrentScene: objects.Scene;
         public static CurrentState: config.Scene;
         public static Stage: createjs.Stage;
+        public static ScoreBoardManager: managers.ScoreBoard;
     }
 }

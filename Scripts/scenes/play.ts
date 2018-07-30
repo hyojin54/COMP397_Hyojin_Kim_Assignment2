@@ -74,6 +74,9 @@ namespace scenes {
             for (const bird of this._birds) {
                 this.addChild(bird);
             }
+
+            this.addChild(managers.Game.ScoreBoardManager.LivesLabel);
+            this.addChild(managers.Game.ScoreBoardManager.ScoreLabel);
         }
     }
 }
