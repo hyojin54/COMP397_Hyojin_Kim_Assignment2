@@ -13,20 +13,25 @@ namespace managers {
             ) {
                 if (!object2.isColliding) {
                     object2.isColliding = true;
-                    switch (
-                    object2.name
-                    /*
-                                case "island":
-                                    let yaySound = createjs.Sound.play("yay");
-                                    yaySound.volume = 0.2;
-                                    break;
-        
-                                case "cloud":
-                                    let thunderSound = createjs.Sound.play("thunder");
-                                    thunderSound.volume = 0.2;
-                                    break;
-                                    */
-                    ) {
+                    switch (object2.name) {
+
+                        case "fruit":
+                            let yaySound = createjs.Sound.play("yay");
+                            yaySound.volume = 0.1;
+                            managers.Game.ScoreBoardManager.Score += 100;
+                            break;
+
+                        case "bird":
+                            let thunderSound = createjs.Sound.play("thunder");
+                            thunderSound.volume = 0.1;
+                            managers.Game.ScoreBoardManager.Lives -= 1;
+                            
+                            // check if lives falls below 1
+                            if (managers.Game.ScoreBoardManager.Lives <= 0) {
+                                // change scenes to the END scene
+                                managers.Game.CurrentState = config.Scene.EXIT;
+                            }
+                            break;
                     }
                 }
             } else {

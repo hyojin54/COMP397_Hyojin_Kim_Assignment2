@@ -84,6 +84,7 @@
         if (currentScene) {
             currentScene.Destroy();
             stage.removeChild(currentScene);
+            createjs.Sound.stop(); // stop all sounds
         }
 
         switch (currentState) {
