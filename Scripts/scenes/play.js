@@ -19,18 +19,30 @@ var scenes;
             return _this;
         }
         // private methods
+        Play.prototype._buildBirds = function () {
+            for (var count = 0; count < this._birdsCount; count++) {
+                this._birds.push(new objects.Bird());
+            }
+        };
         // public methods
         Play.prototype.Start = function () {
             console.log("%c Starting Play Scene", "font-style:italic; font-size:20px;");
             this._background = new objects.Background();
             this._runner = new objects.Runner();
             this._fruit = new objects.Fruit();
+            // creates an empty array of type Bird
+            this._birds = new Array();
+            this._birdsCount = 2;
+            this._buildBirds();
             this.Main();
         };
         Play.prototype.Update = function () {
             this._background.Update();
             this._runner.Update();
             this._fruit.Update();
+            this._birds.forEach(function (cloud) {
+                cloud.Update();
+            });
         };
         Play.prototype.Reset = function () { };
         Play.prototype.Destroy = function () {
@@ -40,6 +52,10 @@ var scenes;
             this.addChild(this._background);
             this.addChild(this._runner);
             this.addChild(this._fruit);
+            for (var _i = 0, _a = this._birds; _i < _a.length; _i++) {
+                var bird = _a[_i];
+                this.addChild(bird);
+            }
         };
         return Play;
     }(objects.Scene));

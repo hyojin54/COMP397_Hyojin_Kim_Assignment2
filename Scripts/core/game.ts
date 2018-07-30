@@ -19,7 +19,8 @@
         { id: "btnInstructions", src: "/Assets/images/button_instructions.jpg" },
         { id: "background", src: "/Assets/images/bg4.png" },
         { id: "runner", src: "/Assets/images/runner.png" },
-        { id: "fruit", src: "/Assets/images/item1.png" }
+        { id: "fruit", src: "/Assets/images/item1.png" },
+        { id: "bird", src: "/Assets/images/bird.png" }
     ];
 
     function Init(): void {
