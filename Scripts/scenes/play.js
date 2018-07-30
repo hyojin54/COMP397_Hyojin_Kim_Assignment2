@@ -53,6 +53,7 @@ var scenes;
         };
         Play.prototype.Reset = function () { };
         Play.prototype.Destroy = function () {
+            this.engineSound.stop();
             this.removeAllChildren();
         };
         Play.prototype.Main = function () {

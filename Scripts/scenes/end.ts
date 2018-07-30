@@ -1,8 +1,9 @@
-namespace scenes {
+module scenes {
     export class End extends objects.Scene {
         // member variables
-        private _endLabel: objects.Label;
-        private _backButton: objects.Button;
+        private _gameOverLabel: objects.Label;
+        private _restartButton: objects.Button;
+        private _background: objects.Background;
 
         // constructors
         constructor() {
@@ -12,43 +13,40 @@ namespace scenes {
         }
 
         // private methods
-
         // public methods
-        public Start(): void {
-            this._endLabel = new objects.Label(
-                "Game Over!",
-                "60px",
-                "Consolas",
-                "#000000",
-                320,
-                240,
-                true
-            );
-            this._backButton = new objects.Button("btnExit", 320, 360, true);
+        public Start():void {
+            this._background = new objects.Background();
+
+            this._gameOverLabel = new objects.Label("Game Over!", "60px", "Consolas", "#FFFF00", 320, 240, true);
+            this._restartButton = new objects.Button("btnStart", 320, 360, true);
 
             this.Main();
         }
 
-        public Update(): void { }
+        public Update():void {
+            this._background.Update();
+        }
 
-        public Reset(): void { }
+        public Reset():void {
 
-        public Destroy(): void {
+        }
+
+        public Destroy():void {
             this.removeAllChildren();
         }
 
-        public Main(): void {
+        public Main():void {
             console.log(`Starting End Scene`);
-            this.addChild(this._endLabel);
-            this.addChild(this._backButton);
 
-            this._backButton.on(
-                "click",
-                function () {
-                    managers.Game.CurrentState = config.Scene.PLAY;
-                },
-                this
-            );
+            this.addChild(this._background);
+
+            this.addChild(this._gameOverLabel);
+            this.addChild(this._restartButton);
+
+            this._restartButton.on("click", function(){
+                managers.Game.ScoreBoardManager.Reset();
+                managers.Game.CurrentState = config.Scene.PLAY;
+            }, this);
         }
     }
 }

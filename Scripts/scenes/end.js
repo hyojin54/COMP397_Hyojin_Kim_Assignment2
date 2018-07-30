@@ -21,20 +21,26 @@ var scenes;
         // private methods
         // public methods
         End.prototype.Start = function () {
-            this._endLabel = new objects.Label("Game Over!", "60px", "Consolas", "#000000", 320, 240, true);
-            this._backButton = new objects.Button("btnExit", 320, 360, true);
+            this._background = new objects.Background();
+            this._gameOverLabel = new objects.Label("Game Over!", "60px", "Consolas", "#FFFF00", 320, 240, true);
+            this._restartButton = new objects.Button("btnStart", 320, 360, true);
             this.Main();
         };
-        End.prototype.Update = function () { };
-        End.prototype.Reset = function () { };
+        End.prototype.Update = function () {
+            this._background.Update();
+        };
+        End.prototype.Reset = function () {
+        };
         End.prototype.Destroy = function () {
             this.removeAllChildren();
         };
         End.prototype.Main = function () {
             console.log("Starting End Scene");
-            this.addChild(this._endLabel);
-            this.addChild(this._backButton);
-            this._backButton.on("click", function () {
+            this.addChild(this._background);
+            this.addChild(this._gameOverLabel);
+            this.addChild(this._restartButton);
+            this._restartButton.on("click", function () {
+                managers.Game.ScoreBoardManager.Reset();
                 managers.Game.CurrentState = config.Scene.PLAY;
             }, this);
         };

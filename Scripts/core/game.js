@@ -13,6 +13,7 @@
     var currentState;
     var scoreBoardManager;
     var Manifest = [
+        // todo. restart
         { id: "btnStart", src: "/Assets/images/button_start.jpg" },
         { id: "btnExit", src: "/Assets/images/button_exit.jpg" },
         { id: "btnInstructions", src: "/Assets/images/button_instructions.jpg" },
@@ -62,7 +63,7 @@
         if (currentScene) {
             currentScene.Destroy();
             stage.removeChild(currentScene);
-            createjs.Sound.stop(); // stop all sounds
+            //createjs.Sound.stop(); // stop all sounds
         }
         switch (currentState) {
             case config.Scene.START:

@@ -63,6 +63,7 @@ namespace scenes {
         public Reset(): void { }
 
         public Destroy(): void {
+            this.engineSound.stop();
             this.removeAllChildren();
         }
 
