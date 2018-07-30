@@ -8,8 +8,8 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var Scenes;
-(function (Scenes) {
+var scenes;
+(function (scenes) {
     var Play = /** @class */ (function (_super) {
         __extends(Play, _super);
         // constructors
@@ -23,10 +23,12 @@ var Scenes;
         Play.prototype.Start = function () {
             console.log("%c Starting Play Scene", "font-style:italic; font-size:20px;");
             this._background = new objects.Background();
+            this._runner = new objects.Runner();
             this.Main();
         };
         Play.prototype.Update = function () {
             this._background.Update();
+            this._runner.Update();
         };
         Play.prototype.Reset = function () { };
         Play.prototype.Destroy = function () {
@@ -34,9 +36,10 @@ var Scenes;
         };
         Play.prototype.Main = function () {
             this.addChild(this._background);
+            this.addChild(this._runner);
         };
         return Play;
     }(objects.Scene));
-    Scenes.Play = Play;
-})(Scenes || (Scenes = {}));
+    scenes.Play = Play;
+})(scenes || (scenes = {}));
 //# sourceMappingURL=play.js.map

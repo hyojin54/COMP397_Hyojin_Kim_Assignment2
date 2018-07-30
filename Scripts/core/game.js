@@ -15,7 +15,8 @@
         { id: "btnStart", src: "/Assets/images/button_start.jpg" },
         { id: "btnExit", src: "/Assets/images/button_exit.jpg" },
         { id: "btnInstructions", src: "/Assets/images/button_instructions.jpg" },
-        { id: "background", src: "/Assets/images/bg4.png" }
+        { id: "background", src: "/Assets/images/bg4.png" },
+        { id: "runner", src: "/Assets/images/runner.png" }
     ];
     function Init() {
         console.log("%c Assets Loading...", "font-weight:bold; font-size:20px; color:green;");
@@ -29,10 +30,12 @@
         console.log("%c App Starting...", "font-weight:bold; font-size:20px; color:red;");
         canvas = document.getElementsByTagName("canvas")[0];
         stage = new createjs.Stage(canvas);
+        managers.Game.Stage = stage; // create a reference to the stage class
         stage.enableMouseOver(20); // enables mouseover events
         createjs.Ticker.framerate = 60; // sets framerate to 60fps
         createjs.Ticker.on("tick", Update);
         currentState = config.Scene.START;
+        managers.Game.CurrentState = currentState;
         // This is where all the magic happens
         Main();
     }
@@ -45,19 +48,26 @@
         stage.update();
     }
     function Main() {
-        console.log("%c Finite State Machine", "font-style:italic; font-size:16px; color:black;");
+        console.log("%c Switching Scenes...", "font-style:italic; font-size:16px; color:black;");
+        if (currentScene) {
+            currentScene.Destroy();
+            stage.removeChild(currentScene);
+        }
         switch (currentState) {
             case config.Scene.START:
-                currentScene = new Scenes.Start();
+                currentScene = new scenes.Start();
+                break;
+            case config.Scene.PLAY:
+                currentScene = new scenes.Play();
                 break;
             case config.Scene.INSTRUCTIONS:
-                //currentScene = new Scenes.Play();
+                //
                 break;
             case config.Scene.EXIT:
-                //
-                currentScene = new Scenes.Play();
+                currentScene = new scenes.End();
                 break;
         }
+        managers.Game.CurrentScene = currentScene;
         stage.addChild(currentScene);
     }
     window.addEventListener("load", Init);

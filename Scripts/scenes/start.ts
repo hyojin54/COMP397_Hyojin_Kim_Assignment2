@@ -1,4 +1,4 @@
-namespace Scenes {
+namespace scenes  {
     export class Start extends objects.Scene {
         // member variables
         private _welcomeLabel: objects.Label;
@@ -45,7 +45,7 @@ namespace Scenes {
             this._startButton.on(
                 "click",
                 function () {
-                    managers.Game.CurrentState = config.Scene.EXIT;
+                    managers.Game.CurrentState = config.Scene.PLAY;
                     this.removeAllChildren();
                 },
                 this

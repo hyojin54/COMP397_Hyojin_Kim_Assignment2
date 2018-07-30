@@ -8,8 +8,8 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var Scenes;
-(function (Scenes) {
+var scenes;
+(function (scenes) {
     var Start = /** @class */ (function (_super) {
         __extends(Start, _super);
         // constructors
@@ -32,12 +32,12 @@ var Scenes;
             this.addChild(this._startButton);
             this.addChild(this._welcomeLabel);
             this._startButton.on("click", function () {
-                managers.Game.CurrentState = config.Scene.EXIT;
+                managers.Game.CurrentState = config.Scene.PLAY;
                 this.removeAllChildren();
             }, this);
         };
         return Start;
     }(objects.Scene));
-    Scenes.Start = Start;
-})(Scenes || (Scenes = {}));
+    scenes.Start = Start;
+})(scenes || (scenes = {}));
 //# sourceMappingURL=start.js.map
